@@ -1,0 +1,17 @@
+crearListaNumeros x = [2..x]
+
+esImpar n = n `mod` 2 /= 0
+
+divisores n = 
+    all (\k -> n `noEsDivisibleEntre` k) [2..raizCuadradaEntera n]
+
+noEsDivisibleEntre n k = 
+    n `mod` k /= 0
+
+raizCuadradaEntera n = 
+    floor (sqrt (fromIntegral n))
+
+verificarPrimo n = esImpar n && divisores n
+
+numerosPrimosEntreDosYElSiguienteValor x = 
+    filter verificarPrimo (crearListaNumeros x)
